@@ -1,0 +1,8 @@
+https://github.com/BobAnnCode/vue-kitty.git
+
+echo "# vue-kitty" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/BobAnnCode/vue-kitty.git
+git push -u origin master
