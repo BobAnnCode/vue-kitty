@@ -1,15 +1,18 @@
-//二次封装axios模块,包含拦截器等信息
+//0.config.js      默认配置包含基础路径等信息
+//1.axios.js     二次封装axios模块,包含拦截器等信息
+//2.interface.js 请求接口汇总模块,聚合api
+//3.index.js     导入所有接口
 import axios from 'axios';
 import config from './config';
-import qs from 'qs';
+import qs from 'qs';//关于Vue中，序列化字符串，处理发送请求的参数 ,使用工具qs来处理参数
 import Cookies from "js-cookie";
 import router from '@/router'
 
 // 使用vuex做全局loading时使用
 // import store from '@/store'
 
-export default function $axios(options) {
-  return new Promise((resolve, reject) => {
+export default function $axios(options) {               //vue除了数据属性，Vue 实例还暴露了一些有用的实例属性与方法。它们都有前缀 $，以便与用户定义的属性区分开来
+  return new Promise((resolve, reject) => {     //Promise 是instance 实例的prototype的引用,能获取里面的方法并调用
     const instance = axios.create({
       baseURL: config.baseURL,
       headers: {},
